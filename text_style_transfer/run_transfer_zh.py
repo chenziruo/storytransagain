@@ -20,7 +20,7 @@ class Config(object):
         self.mask_fill_learning_rate = 5e-5
         self.model_save_dir = "model_add_sen_type" + "/" + args.model
         self.log_dir = "log" + "/" + args.model
-        self.pre_trained_t5 = "pretrained_model/LongLM-base"
+        self.pre_trained_t5 = "/home/czy/storytrans_public/text_style_transfer/pretrained_model/LongLM-base"
         self.sen_token = "<SEN>"
         self.margin = 2
 
@@ -35,12 +35,12 @@ class Config(object):
         # self.sen_embs = "./data_ours/auxiliary_data/train.sen.bt.emb.pickle"
         # self.sen_bt = "./data_ours/auxiliary_data/train.sen.bt"
         # self.train_set = './data_ours/auxiliary_data/train.sen.add_index'
-        self.train_set_mask = './data/zh/train.sen.add_index.mask'
+        self.train_set_mask = '/home/czy/storytrans_public/text_style_transfer/data/zh/train.sen.add_index.mask'
         # self.train_set_mask_jy = './data_ours/auxiliary_data/train.sen.add_index.mask.jy'
         # self.train_set_mask_lx = './data_ours/auxiliary_data/train.sen.add_index.mask.lx'
-        self.valid_set = './data/zh/valid.sen.add_index'
+        self.valid_set = '/home/czy/storytrans_public/text_style_transfer/data/zh/valid.sen.add_index'
         # self.test_set = './data/zh/test.sen.add_index.mask'
-        self.test_set_mask = '/data/zh/test.sen.add_index.mask'
+        self.test_set_mask = '/home/czy/storytrans_public/text_style_transfer/data/zh/test.sen.add_index.mask'
         self.need_fill = args.fill
 
         # # classifier setting

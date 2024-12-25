@@ -12,7 +12,7 @@ import torch.nn as nn
 import os, torch, time
 import torch.nn.functional as F
 import numpy as np
-from pytorch_metric_learning.losses import NTXentLoss
+# from pytorch_metric_learning.losses import NTXentLoss
 from torch.distributions.multivariate_normal import MultivariateNormal
 from torch.nn.utils.rnn import pad_sequence
 

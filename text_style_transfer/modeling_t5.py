@@ -49,11 +49,10 @@ from transformers.models.t5.configuration_t5 import T5Config
 from transformers.file_utils import ModelOutput
 from dataclasses import dataclass
 from torch.nn.utils.rnn import pad_sequence
-from transformers.generation_beam_search import BeamScorer, BeamSearchScorer
-from transformers.generation_stopping_criteria import validate_stopping_criteria
-from transformers.generation_utils import top_k_top_p_filtering
-from transformers.generation_logits_process import LogitsWarper
-
+from transformers.generation.beam_search import BeamScorer, BeamSearchScorer
+from transformers.generation.stopping_criteria import validate_stopping_criteria
+from transformers.generation.utils import top_k_top_p_filtering
+from transformers.generation.logits_process import LogitsWarper
 
 logger = logging.get_logger(__name__)
 

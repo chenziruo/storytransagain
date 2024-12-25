@@ -5,7 +5,9 @@ import torch
 import pickle
 import random
 
-
+"""
+用于加载处理数据，各class有不同的用处
+"""
 
 # def load_vocab(vocab_file):
 #     """Loads a vocabulary file into a dictionary."""
@@ -19,7 +21,7 @@ import random
 
 class Data_Encoder(Dataset):
 
-    def __init__(self, file):
+    def __init__(self, file): # 导入数据
         # load data
         with open(file, 'r') as f:
             self.seqs = f.readlines()
@@ -33,14 +35,27 @@ class Data_Encoder(Dataset):
             '<GS>': 2,
         }
 
-    def __len__(self):
-        """Denotes the total number of samples"""
+    def __len__(self): # 返回数据集大小
         return len(self.seqs)
 
     def __getitem__(self, index):
+        """ 
+        根据索引获取序列数据
+
+        从序列数据中根据给定索引提取文本、样式和索引号，并进行相应的预处理，以准备机器学习模型的输入数据。
+
+        参数:
+        index (int): 序列数据的索引。
+
+        返回:
+        text (str): 处理后的纯文本。
+        text_add_sen (str): 添加了特殊标记的文本，用于模型输入。
+        label (torch.Tensor): 样式的标签，用于训练模型。
+        num (torch.Tensor): 序列的索引号，转换为张量。
+        """
         data = json.loads(self.seqs[index])
         text = data['text']
-        text_add_sen = "<SEN>".join(text) + "<SEN>"
+        text_add_sen = "<SEN>".join(text) + "<SEN>" # 在文本中加入<SEN>标记，并在末尾添加<SEN>标记
         text = "".join(text)
         # title = data['title']
         style = data['style']
@@ -51,7 +66,7 @@ class Data_Encoder(Dataset):
 
         # device = torch.device('cuda' if True and torch.cuda.is_available() else 'cpu')
         # text = "<STY>" + text
-        text_add_sen = "<STY>" + text_add_sen
+        text_add_sen = "<STY>" + text_add_sen # 在文本前添加<STY>特殊标记，用于指示样式
         return text, text_add_sen, label, num #, sen_emd
 
 
