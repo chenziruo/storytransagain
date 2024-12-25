@@ -1,3 +1,7 @@
+## 本项目是对原论文的复现，尚未完善仅供参考。
+
+
+
 # StoryTrans
 
 This repo inculdes the code in the paper [StoryTrans: Non-Parallel Story Author-Style Transfer with Discourse Representations and Content Enhancing](https://arxiv.org/abs/2208.13423) (ACL 2023 Long Paper).
